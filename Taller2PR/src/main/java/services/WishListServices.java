@@ -134,6 +134,6 @@ public class WishListServices {
             Json m = new Json("Error", ex.getMessage());
             return Response.status(500).entity(m).build();
         }
-        
+
     }
 }

@@ -1,8 +1,8 @@
 package model;
 
 public class Json {
-    private String type;
-    private String message;
+    public String type;
+    public String message;
 
     public Json(String type, String message) {
         this.type = type;

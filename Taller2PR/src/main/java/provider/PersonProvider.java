@@ -2,7 +2,6 @@ package provider;
 
 import db.DbConnection;
 import entity.WishList;
-import entity.Product;
 import entity.Person;
 
 import java.sql.ResultSet;
@@ -57,7 +56,7 @@ public class PersonProvider {
             if(payDate==null){
                 payDate = "0";
             }
-            WishList wl = new WishList(id2,Long.valueOf(creationDate),payed,Long.valueOf(payDate),id);
+            WishList wl = new WishList(id2,Long.parseLong(creationDate),payed,Long.parseLong(payDate),id);
             orders.add(wl);
         }
         return orders;

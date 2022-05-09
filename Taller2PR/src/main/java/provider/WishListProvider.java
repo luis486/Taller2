@@ -8,7 +8,6 @@ import model.OrderInformation;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -18,13 +17,13 @@ public class WishListProvider {
 
         DbConnection connection = new DbConnection();
 
-        String sql="INSERT INTO ordersA00369008 (name, creationDate, userID,payed,payDate) VALUES ('NORMAL', $CREATIONDATE,'$USERID',$PAYED,$PAYDATE)";
+        String sql="INSERT INTO ordersA00369008 (name, creationDate, userID,paid,payDate) VALUES ('NORMAL', $CREATIONDATE,'$USERID',$PAID,$PAYDATE)";
         sql= sql.replace("$CREATIONDATE", Long.toString(new Date().getTime()));
 
         int id = wishList.getId();
 
             sql = sql.replace("$USERID", Integer.toString(id));
-            sql = sql.replace("$PAYED", "-1");
+            sql = sql.replace("$PAID", "-1");
             sql = sql.replace("$PAYDATE", "0");
             connection.runQuery(sql);
             connection.close();
@@ -35,8 +34,6 @@ public class WishListProvider {
     public void addProductToOrder(Order order) throws SQLException, ClassNotFoundException {
 
         DbConnection connection = new DbConnection();
-
-        ProductProvider provider = new ProductProvider();
 
         String sql="INSERT INTO order_productsA00369008(amount, orderID, productID) VALUES ('$ORDERID','$PRODUCTID','$QUANTITY')";
         sql= sql.replace("$ORDERID", Integer.toString(order.getOrderId()));
@@ -99,7 +96,6 @@ public class WishListProvider {
 
         String sql="UPDATE ordersA00369008 SET paid = 1 WHERE id = $ID";
         long time = System.currentTimeMillis();
-        Instant instant = Instant.ofEpochSecond(time);
 
         sql = sql.replace("$ID", info);
 
@@ -111,7 +107,7 @@ public class WishListProvider {
         sql = sql.replace("$PAY", Long.toString(time));
         connection.runQuery(sql);
 
-        sql = "SELECT ordersA00369008.id,ordersA00369008.creationDate, ordersA00369008.payed, ordersA00369008.payDate, ordersA00369008.userID FROM ordersA00369008 WHERE id = '$ID' AND payDate = $PAYDATE ";
+        sql = "SELECT ordersA00369008.id,ordersA00369008.creationDate, ordersA00369008.paid, ordersA00369008.payDate, ordersA00369008.userID FROM ordersA00369008 WHERE id = '$ID' AND payDate = $PAYDATE ";
         sql = sql.replace("$ID", info);
         sql = sql.replace("$PAYDATE", Long.toString(time));
 
@@ -140,7 +136,7 @@ public class WishListProvider {
         DbConnection connection = new DbConnection();
 
         String sql = "SELECT productsA00369008.id, productsA00369008.name, productsA00369008.price, order_productsA00369008.amount FROM (productsA00369008 INNER JOIN order_productsA00369008 " +
-                "ON productsA00369008.id = order_productsA00369008.productId)INNER JOIN ordersA00369008 ON order_productsA00369008.orderId = ordersA00369008.id WHERE ordersA00369008.id = $ORDERID";
+                "ON productsA00369008.id = order_productsA00369008.productID)INNER JOIN ordersA00369008 ON order_productsA00369008.orderID = ordersA00369008.id WHERE ordersA00369008.id = $ORDERID";
         sql = sql.replace("$ORDERID", info);
         ArrayList<Product> products = new ArrayList<>();
 
