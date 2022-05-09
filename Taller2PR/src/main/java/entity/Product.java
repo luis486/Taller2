@@ -7,10 +7,10 @@ public class Product {
     private int amount;
     private double price;
 
-    public Product(int id, String name, int amount, double price) {
+    public Product(int id, String name,double price) {
         this.id = id;
         this.name = name;
-        this.amount = amount;
+
         this.price = price;
     }
 

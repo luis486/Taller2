@@ -1,6 +1,6 @@
 package model;
 
-public class   OrderInformation {
+public class  OrderInformation {
 
     private String info;
     private int amountProducts;

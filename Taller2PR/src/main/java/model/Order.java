@@ -6,10 +6,10 @@ public class Order {
     private String productName;
     private int amount;
 
-    public Order(int orderId, String productName, int quantity) {
+    public Order(int orderId, String productName, int amount) {
         this.orderId = orderId;
         this.productName = productName;
-        this.amount = quantity;
+        this.amount = amount;
     }
 
     public int getOrderId() {

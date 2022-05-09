@@ -4,14 +4,14 @@ public class WishList {
 
     private int id;
     private long creationDate;
-    private int payed;
+    private int paid;
     private long payDate;
     private int userID;
 
-    public WishList(int id, long creationDate, int payed, long payDate, int userID) {
+    public WishList(int id, long creationDate, int paid, long payDate, int userID) {
         this.id = id;
         this.creationDate = creationDate;
-        this.payed = payed;
+        this.paid = paid;
         this.payDate = payDate;
         this.userID = userID;
     }
@@ -32,12 +32,11 @@ public class WishList {
         this.creationDate = creationDate;
     }
 
-    public int getPayed() {
-        return payed;
+    public int getPaid() {
+        return paid;
     }
 
-    public void setPayed(int payed) {
-        this.payed = payed;
+    public void setPaid(int paid){ this.paid = paid;
     }
 
     public long getPayDate() {
