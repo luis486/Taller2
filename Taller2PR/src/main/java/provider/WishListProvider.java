@@ -47,14 +47,9 @@ public class WishListProvider {
         sql = sql.replace("$PRODUCTID", Integer.toString(id));
         connection.runQuery(sql);
         connection.close();
-
-
-
-
-
     }
 
-    public void deleteProductFromOrder(String[] parts) throws SQLException, ClassNotFoundException {
+    public void deleteProduct(String[] parts) throws SQLException, ClassNotFoundException {
 
         DbConnection conn = new DbConnection();
 
@@ -73,12 +68,9 @@ public class WishListProvider {
             conn.close();
         }
 
-
-
-
     }
 
-    public void removeProductFromOrder(Order order) throws SQLException, ClassNotFoundException {
+    public void removeProduct(Order order) throws SQLException, ClassNotFoundException {
 
         DbConnection connection = new DbConnection();
 
@@ -99,11 +91,9 @@ public class WishListProvider {
             connection.runQuery(sql);
             connection.close();
         }
-
-
     }
 
-    public WishList updateStatus(String info) throws SQLException, ClassNotFoundException {
+    public WishList update(String info) throws SQLException, ClassNotFoundException {
 
         DbConnection connection = new DbConnection();
 
@@ -139,7 +129,6 @@ public class WishListProvider {
             WishList wl = new WishList(id,creationDate,payed,payDate,userId);
             wishLists.add(wl);
         }
-
 
         connection.close();
         return wishLists.get(0);
