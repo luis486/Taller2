@@ -25,7 +25,7 @@ public class PersonProvider {
     public int findUser(int natId) throws SQLException, ClassNotFoundException {
 
         DbConnection conn = new DbConnection();
-        String sql="SELECT id FROM usersA00369267 WHERE nationalId = '$NATIONALID'";
+        String sql="SELECT id FROM usersA00369008 WHERE nationalId = '$NATIONALID'";
         sql = sql.replace("$NATIONALID", Integer.toString(natId));
         ResultSet results =  conn.getData(sql);
         int foundId = 0;
