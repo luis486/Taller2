@@ -10,6 +10,7 @@ import javax.ws.rs.core.Response;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+@Path("person")
 public class PersonServices {
 
     @POST

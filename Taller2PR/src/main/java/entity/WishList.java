@@ -16,6 +16,10 @@ public class WishList {
         this.userID = userID;
     }
 
+    public WishList(){
+
+    }
+
     public int getId() {
         return id;
     }

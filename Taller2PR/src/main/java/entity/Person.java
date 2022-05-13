@@ -12,6 +12,10 @@ public class Person {
         this.natId = natId;
     }
 
+    public Person(){
+
+    }
+
     public String getName() {
         return name;
     }

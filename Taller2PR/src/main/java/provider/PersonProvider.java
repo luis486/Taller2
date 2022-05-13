@@ -14,7 +14,7 @@ public class PersonProvider {
 
         DbConnection connection = new DbConnection();
 
-        String sql="INSERT INTO usersA00369008 (name, nationalId) VALUES ('$NAME','$USERID')";
+        String sql="INSERT INTO usersA00369008 (name, natId) VALUES ('$NAME','$USERID')";
         sql= sql.replace("$NAME",person.getName());
         sql= sql.replace("$USERID",person.getNatId());
         connection.runQuery(sql);
