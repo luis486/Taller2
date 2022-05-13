@@ -17,7 +17,7 @@ public class WishListProvider {
 
         DbConnection connection = new DbConnection();
 
-        String sql="INSERT INTO ordersA00369008 (name, creationDate, userID,paid,payDate) VALUES ('NORMAL', $CREATIONDATE,'$USERID',$PAID,$PAYDATE)";
+        String sql="INSERT INTO ordersA00369008 (userID) VALUES ('$USERID')";
         sql= sql.replace("$CREATIONDATE", Long.toString(new Date().getTime()));
 
         int id = wishList.getId();
@@ -35,9 +35,9 @@ public class WishListProvider {
 
         DbConnection connection = new DbConnection();
 
-        String sql="INSERT INTO order_productsA00369008(amount, orderID, productID) VALUES ('$ORDERID','$PRODUCTID','$QUANTITY')";
+        String sql="INSERT INTO order_productsA00369008(amount, orderID, productID) VALUES ('$ORDERID','$PRODUCTID','AMOUNT')";
         sql= sql.replace("$ORDERID", Integer.toString(order.getOrderId()));
-        sql = sql.replace("$QUANTITY", Integer.toString(order.getAmount()));
+        sql = sql.replace("$AMOUNT", Integer.toString(order.getAmount()));
         int id = Integer.parseInt(order.getProductName());
 
 

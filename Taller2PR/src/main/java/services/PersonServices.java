@@ -32,5 +32,5 @@ public class PersonServices {
             return Response.status(500).entity(m).build();
         }
     }
-    
+
 }
